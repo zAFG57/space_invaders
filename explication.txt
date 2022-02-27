@@ -1,0 +1,44 @@
+il y a de nombreuses améliorations dans ce jeux.
+
+
+
+
+ • premierment, le scrore et un nombre de vie sont affichés
+le score est affiché en haut a gauche et est nommé space coin. lorsque vous tuée un énemie, on verrifie de quelle type il est.
+si ça varriable type vaut 1, alors il s'agit des vaisseau de base qui sont lent. Si il vaut deux, il s'agit des vaisseau
+rapid qui raportent deux spaces coins lorsqu'ils décèdent.
+
+
+ • les énemies voit leurs vitesses augmenter au fil de la partie
+a chaque fois que la fonction avencer dans la class énemi est appeler,(c'est a dire a chaque fraime.)
+la varriable accélération est incrémenter de 0.000005. De plus, les vaisseau ayant une vitesse fix, je définit leur déplacements comme
+étant la vitesse fois l'accélération. De plus, les vaisseaus concervent cette varriable même après leurs morts et leurs réaparition.
+Ainsi, les vaisseau accélaire progressivement et le jeux devient de plus en plus dur a jouer sans utiliser les amélioration disponible.
+
+
+ • le menu avec les améliorations achetable.
+se menu est premièrement une image afficher en haut a droit de l'écran. lorsque l'utilisateur click, un évenement pygame se lance 
+et vérifie si le click était sur le menu. si le click était sur le menu alors la varriable pause devient égale a true.
+celà permet d'arrêter tout les déplacements. le programme continue de tourner de la même façon mais lorsque l'on veut changer la 
+position du vaisseau ou des énemis, rien ne change. parallèlement, lorsque pause vaut true, les rrois image correspondant au trois 
+amélioration disponibles sont visible et un nouvelle événement est disponible. maintenant, si un click est effectué, le programme 
+regarde si cela correspond a une des améliorations ou au bouton menu.si le bouton menu est touché, pause est initialiser a false et
+ le jeux reprend. si c'est l'une des améliorations qui est touché, alors la fonction correspondante est appelé dans la classe amélioration.
+cette fonction vérifie si vous avez assez de space coin puis il vous applique le bonus.
+
+le bonus de vie est fait en incrémentant la varriable vie de la classe player. il coûte 10 space coin
+
+le bonnus de taille du chargeur est fait en ajoutant une antiter de la classe balle dans la liste: listBalle.
+de la meme façon que les différents énemie sont gérées. il coûte 50 space coin.
+
+le dernier bonus est un bonus de vitesse. de la même façon que les énemis accélère grâce à la variable accélération, le bonnus incrémante la 
+varriable accélération de la classe player. ce bonnus coûte 100 space coin.
+
+une des intégrations mineur dans ce jeux est le bruit de feu qui se manifeste lorsque vous tirrer un balle.
+
+pour finir, j'ai modifier la façon d'ont fonctionnait les balles lorsque qu'elle n'était pas tirrer.
+Vous vouliez qu'on les place dans le vaisseau et quelle suivent le déplacements du vaisseau. Or, cela consome des 
+performence pour rien car la balle n'est pas visible. ce consomation de performance est cert minime, cependant
+lorsque que vous avez plusieur balle avec les améliorations, la différence se fait ressentir.
+La solution que j'ai trouver a donc été de les afficher a une position fixe en dehor de l'écran puis lorsqu'elle était tirrer
+mettre leurs position à la position du vaisseau.
